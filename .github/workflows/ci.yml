@@ -1,0 +1,42 @@
+name: CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  worker:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+  integration:
+    # Forks receive no private-repository credential; integration runs on pushes.
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          path: meta
+      - id: lock
+        run: echo "commit=$(node -p 'require("./meta/renderer.lock.json").commit')" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          repository: tabenius/ragbaz-common
+          ref: ${{ steps.lock.outputs.commit }}
+          path: common
+          ssh-key: ${{ secrets.COMMON_READ_KEY }}
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: meta/package-lock.json
+      - run: npm ci --prefix common
+      - run: npm ci --prefix meta
+      - run: npm run build --prefix meta -- --common "$GITHUB_WORKSPACE/common"
+      - run: npm run bundle --prefix meta
+      - run: npm run smoke --prefix meta

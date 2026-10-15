@@ -1,0 +1,19 @@
+{
+  "name": "ragbaz-meta",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-10-15",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "meta.ragbaz.cc/markdoc-ragbaz-sci-tufte*", "zone_name": "ragbaz.cc" },
+    { "pattern": "meta.ragbaz.cc/heartfulness*", "zone_name": "ragbaz.cc" },
+    { "pattern": "meta.ragbaz.cc/aether*", "zone_name": "ragbaz.cc" }
+  ],
+  "assets": {
+    "directory": "build/public",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  }
+}
