@@ -20,6 +20,10 @@ This is agent self-review, not independent security review or manuscript approva
 - **CI/runtime drift:** pin current Actions by SHA and use Ubuntu 24.04. CI runs
   renderer browser tests plus Worker tests, all-template builds, bundling and real
   local workerd hash/MIME/redirect/refusal checks. No deployment credentials in CI.
+- **Hosted browser races:** subsequent CI runs exposed slow Chrome startup and
+  fixed-sleep assertions. Serialize test files, wait for reader readiness, disable
+  unnecessary browser services and bound cleanup to the inspected owned PID.
+  Do not suppress failed application assertions with blind retries.
 - **Private renderer access:** use a dedicated read-only repository deploy key;
   do not expose a broad account token. Do not give fork PR jobs that key.
 
