@@ -14,6 +14,15 @@ part of this repository or its public assets.
 
 ## Changelog
 
+- 2026-10-15: Redeploy from clean pushed Worker `009fc3a` and locked renderer
+  `6b28617` after green push and PR browser CI and green Worker/integration CI.
+  Version `9fe0369b-2de3-491c-9223-a2cc72d5405a`. All 75 normal-URL public hashes,
+  redirects, HEAD and refusals verified after initial edge propagation. Wrangler
+  recreated IDs of the three managed routes; every route pattern and Worker
+  assignment, and all unrelated route records, remained unchanged. Evidence:
+  `/srv/ragbaz/reports/meta-git-release-20261015.json`. Renderer PR #2 remains open;
+  this records self-reviewed reproducibility, not independent security approval.
+
 - 2026-10-15: User requested commit/push, CI repair, review/polish and redeploy,
   then explicitly requested a public GitHub remote. Create `tabenius/meta.ragbaz`
   publicly without private research/build artifacts. Pin the renderer commit in

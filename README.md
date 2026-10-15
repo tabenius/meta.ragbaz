@@ -55,11 +55,17 @@ shared dependency, then use Wrangler with credentials only in the environment.
 Do not infer a deployed Worker from a DNS record or from an HTTP 403 at the domain.
 Do not bypass a domain-wide access policy without authorization.
 
-Current state: user-authorized prototypes deployed 2026-10-15. Worker version
+Initial prototype record: user-authorized templates deployed 2026-10-15. Worker version
 `fb81fbb0-e940-4e08-a996-a8920db13b73`. All 75 public file hashes, redirect/query,
 refusals and live Chromium rendering were verified, including actual Google font
 faces, starter loading and 320px layouts across all five templates. This is not an independently
-reviewed, commit-bound release; the shared dependency remains a working tree.
+reviewed, commit-bound release; that deployment used a working tree.
+
+Git-bound redeployment: `9fe0369b-2de3-491c-9223-a2cc72d5405a`, built from Worker
+commit `009fc3aca12f69d95e65c2273bc4edf7492fade7` and clean renderer commit
+`6b2861713d2fea269248fa1d082704481c8f6611`. Both CI suites pass. All 75 normal-URL
+public hashes, redirects, HEAD and refusal checks passed after edge propagation.
+The renderer PR remains open; self-review findings are in `docs/RELEASE-REVIEW.md`.
 
 ## Heartfulness
 
@@ -96,8 +102,9 @@ bytes are not hash-pinned, and layout may change. Failed loading falls back visi
 
 `npm run smoke` checks all five packages and manifest assets against real local
 workerd. Live evidence: `/srv/ragbaz/reports/meta-aether-deployment-20261015.json`
-and `/srv/ragbaz/reports/meta-aether-live-browser-20261015.json`. No Git commit,
-push, independently reviewed release or manuscript-publication approval is implied.
+and `/srv/ragbaz/reports/meta-aether-live-browser-20261015.json`. The Git-bound
+redeployment record is `/srv/ragbaz/reports/meta-git-release-20261015.json`.
+No independent release review or manuscript-publication approval is implied.
 
 ## Git and CI
 
