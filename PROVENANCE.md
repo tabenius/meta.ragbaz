@@ -14,6 +14,13 @@ part of this repository or its public assets.
 
 ## Changelog
 
+- 2026-10-22: Deploy clean pushed Worker `331846d` and pinned renderer `326fee2`
+  after successful host push integration/Worker CI. Version
+  `028e1c31-b33c-4186-b490-629f3de67a81`. Verify all 75 public files against local
+  manifests and all five templates in live Chromium. Preserve all route patterns,
+  assignments and unrelated route records; no access policy operation. Exact
+  validation and the still-queued renderer CI caveat are in `docs/RELEASE-2026-10-22.md`.
+
 - 2026-10-22: Pin pushed renderer `326fee2` for user-requested release: strict
   generation, deterministic integrity reports, active-document diagnostics and
   inert source inspection, fatal UTF-8 file decoding. Includes predecessor print

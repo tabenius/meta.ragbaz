@@ -108,6 +108,11 @@ No independent release review or manuscript-publication approval is implied.
 
 ## Git and CI
 
+Released 2026-10-22 as Worker version `028e1c31-b33c-4186-b490-629f3de67a81`.
+All 75 public file hashes and live Chromium checks passed across the five templates;
+route patterns and assignments are unchanged. See [release verification](docs/RELEASE-2026-10-22.md)
+for exact commits, checks and remaining CI/review caveats.
+
 The 2026-10-22 renderer update pins `326fee2`: Document tools now offers
 **Document checks** (active Markdown digest and rendering diagnostics) and
 **Inspect current Markdown** (inert text). Invalid UTF-8 local files leave the
