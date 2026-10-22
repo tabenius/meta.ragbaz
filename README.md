@@ -108,6 +108,16 @@ No independent release review or manuscript-publication approval is implied.
 
 ## Git and CI
 
+The 2026-10-22 renderer update pins `326fee2`: Document tools now offers
+**Document checks** (active Markdown digest and rendering diagnostics) and
+**Inspect current Markdown** (inert text). Invalid UTF-8 local files leave the
+current document intact. The shared CLI adds opt-in strict generation and JSON
+integrity reports; neutral packages use strict generation. This pin also includes
+the previously tested manuscript-only printing and portable prepared-assets
+assembly. No route, access policy or manuscript publication is changed by the pin.
+Shared validation: 122 tests, including offline Chromium; release/deployment
+verification is recorded separately rather than inferred from this dependency file.
+
 Public Worker repository: https://github.com/tabenius/meta.ragbaz. The renderer
 remains in its owning repository. Check out the full commit in `renderer.lock.json`,
 run `npm ci` in both repositories, then use the build command above. Research

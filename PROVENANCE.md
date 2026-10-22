@@ -14,6 +14,13 @@ part of this repository or its public assets.
 
 ## Changelog
 
+- 2026-10-22: Pin pushed renderer `326fee2` for user-requested release: strict
+  generation, deterministic integrity reports, active-document diagnostics and
+  inert source inspection, fatal UTF-8 file decoding. Includes predecessor print
+  and portable-assembly changes. Shared suite passes 122/122, zero skips; this is
+  agent self-review, not independent security or manuscript-publication approval.
+  Existing three prefix routes and access configuration are intentionally unchanged.
+
 - 2026-10-15: Redeploy from clean pushed Worker `009fc3a` and locked renderer
   `6b28617` after green push and PR browser CI and green Worker/integration CI.
   Version `9fe0369b-2de3-491c-9223-a2cc72d5405a`. All 75 normal-URL public hashes,

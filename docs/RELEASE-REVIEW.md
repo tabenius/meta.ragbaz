@@ -47,3 +47,23 @@ Standalone HTML needs inline runtime/styles; CSP is not a substitute for the
 renderer allowlists. Git pinning establishes reproducible source, not trustworthy
 authorship, independent review or a new redistribution license. The renderer PR
 remains open for independent review; deployment does not imply merge approval.
+# 2026-10-22 renderer update
+
+Self-review for renderer `326fee2f55eb8bfff0a5d98e105ab210e272e7ce`:
+
+- Opt-in strict builds retain existing HTML on diagnostics; reports explicitly
+  describe candidate bytes, not a retained previous output. Hard failures do not
+  refresh reports, so CI must always check exit status.
+- Output/report path collisions are refused, including existing symlink/hard-link
+  aliases and missing outputs under symlinked parent directories. This is an
+  accidental-overwrite guard, not protection against concurrent filesystem attacks.
+- Reader checks distinguish active Markdown SHA-256 from embedded render identity.
+  Diagnostic/source text uses inert DOM APIs; inspection enables no network action.
+  Render refusal clears inspection state. Invalid UTF-8 preserves the old document;
+  valid BOM/CRLF bytes remain part of the active digest.
+- Shared 122-test suite passes with offline Chromium, narrow-screen drawer checks,
+  refusal/local-file transitions, all-template printing and portable frozen outputs.
+- No new origins, executable manuscript content, route patterns or access-policy
+  changes. Deploy only clean commit-pinned packages and verify actual public bytes.
+
+This is not independent security review or approval to publish any manuscript.
