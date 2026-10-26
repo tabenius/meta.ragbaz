@@ -14,6 +14,19 @@ part of this repository or its public assets.
 
 ## Changelog
 
+- 2026-10-26: Deploy clean pushed Worker `79f0c98` and pinned renderer `6a297ef`
+  after successful renderer PR/merge CI and successful host push
+  worker/integration CI. Version `7024244d-b771-4272-b5de-6c54a4dee480`. Verify all
+  75 public files against local manifests and live HTTP behavior. Live Chromium
+  loaded a local Chart.js/Cytoscape document through the deployed reader: two
+  interactive canvases, exact static/table/source fallbacks, no added network
+  request, no global leakage, no page/CSP error, and static SVG restored for print.
+  Preserve all 11 route patterns, assignments and unrelated route records; no
+  access-policy operation. Chart.js 4.6.1, Cytoscape.js 3.34.4 and `@kurkle/color`
+  0.3.4 are license-inventoried; the shared suite is 133/133 with zero skips. This
+  is agent self-review, not independent security or manuscript-publication approval.
+  Exact evidence is in `docs/RELEASE-2026-10-26.md`.
+
 - 2026-10-22: Deploy clean pushed Worker `331846d` and pinned renderer `326fee2`
   after successful host push integration/Worker CI. Version
   `028e1c31-b33c-4186-b490-629f3de67a81`. Verify all 75 public files against local

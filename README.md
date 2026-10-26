@@ -108,6 +108,21 @@ No independent release review or manuscript-publication approval is implied.
 
 ## Git and CI
 
+Released 2026-10-26 as Worker version `7024244d-b771-4272-b5de-6c54a4dee480`.
+All 75 public file hashes/sizes matched the local manifests across the five templates;
+route patterns and assignments are unchanged. Live Chromium loaded a local
+Chart.js/Cytoscape document through the deployed reader and verified interactive
+mounting, exact fallbacks, no network addition and print restoration. See
+[release verification](docs/RELEASE-2026-10-26.md) for exact commits, checks and
+remaining review caveats.
+
+The 2026-10-26 renderer update pins `6a297ef`: the standalone reader bundles pinned
+Chart.js 4.6.1 and Cytoscape.js 3.34.4 for opt-in `chartjs` and `cytoscape` fences.
+The core remains library-free; every profile keeps static SVG, exact tables and
+source, and print uses the static SVG. Vega-Lite/Plotly remain static, Mermaid and
+PlantUML remain inert, and no route, access policy, origin or manuscript publication
+is changed by the pin. Shared validation: 133 tests, including offline Chromium.
+
 Released 2026-10-22 as Worker version `028e1c31-b33c-4186-b490-629f3de67a81`.
 All 75 public file hashes and live Chromium checks passed across the five templates;
 route patterns and assignments are unchanged. See [release verification](docs/RELEASE-2026-10-22.md)
