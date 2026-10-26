@@ -14,6 +14,14 @@ part of this repository or its public assets.
 
 ## Changelog
 
+- 2026-10-26: Pin pushed common main `5e237363b9a346635625e2f6f108a62331a8a2d1`
+  for safe DOI/PMID/PMCID/arXiv prose resolver links and matching Pieces writing
+  invitations on the five no-document templates. Loaded Markdown replaces the
+  invitation. No automatic lookup, new origin permission, route change, access
+  policy operation or manuscript publication. Reconciles the existing portable
+  reading-copy export with current main. Clean shared suite: 135/135,
+  zero skips. This is agent self-review, not independent security review.
+
 - 2026-10-26: Deploy clean pushed Worker `79f0c98` and pinned renderer `6a297ef`
   after successful renderer PR/merge CI and successful host push
   worker/integration CI. Version `7024244d-b771-4272-b5de-6c54a4dee480`. Verify all
