@@ -10,5 +10,5 @@
     "bundle": "wrangler deploy --dry-run --outdir build/worker",
     "smoke": "node scripts/smoke.mjs"
   },
-  "devDependencies": { "wrangler": "^4.0.0" }
+  "devDependencies": { "wrangler": "^4.157.0" }
 }
